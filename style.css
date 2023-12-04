@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialised;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --tt-base: #202024;
+  --txt-base: #121214;
+  --base-white: rgba(255, 255, 255, 1);
+  --bg-heading-button: rgba(6, 94, 124, 1);
+  --bg-input-footer: rgba(56, 126, 150, 1);
+
+  font-family: "Mulish", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+#page {
+  display: grid;
+
+  grid-template:
+    "header header"
+    "main main"
+    "aside aside"
+    "footer footer";
+}
+
+header {
+  grid-area: header;
+  background: var(--bg-heading-button);
+  padding: 1.2rem 0;
+}
+
+header .container {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+header form .input-wrapper input {
+  display: flex;
+  padding: 1.2rem 1.4rem;
+  border-radius: 0.4rem;
+  border: none;
+  background: var(--bg-input-footer);
+}
+
+header form .input-wrapper input::placeholder {
+  color: var(--base-white);
+  opacity: 0.75;
+}
+
+header form .input-wrapper label {
+  width: 0.1rem;
+  height: 0.1rem;
+  overflow: hidden;
+  position: absolute;
+}
+
+header form .input-wrapper input:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.37);
+}
+
+main {
+  grid-area: main;
+}
+
+main img {
+  width: 100%;
+  border-radius: 0.5rem;
+
+  transition-property: all;
+  transition-duration: 1s;
+
+  transform: filter 100ms ease-out, transform 600ms ease-in;
+}
+
+main img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  transform: scale(1.1) rotate(+2deg);
+}
+
+main .container {
+  padding: 3.1rem 2.6rem 3.4rem 2.2rem;
+}
+
+main .title-section h1 {
+  color: var(--tt-base);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 160%;
+}
+
+main .title-section .likes {
+  display: flex;
+  cursor: pointer;
+  gap: 1.2rem;
+  padding: 0.8rem 0 3.1rem;
+}
+
+main p {
+  color: var(--txt-base);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+aside {
+  grid-area: aside;
+}
+
+aside .container {
+  padding: 0 2.6rem 4.1rem 2.2rem;
+}
+
+aside h1 {
+  color: var(--txt-base);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 160%;
+
+  padding-bottom: 3.2rem;
+}
+
+aside .card {
+  display: flex;
+  column-gap: 1.6rem;
+
+  padding-bottom: 3.2rem;
+}
+
+aside .card img {
+  border-radius: 0.5rem;
+  margin-right: 1.6rem;
+  width: 15rem;
+
+  transition-property: all;
+  transition-duration: 600ms;
+  transition-timing-function: ease-in-out;
+}
+
+aside .card img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  transform: scale(1.1) rotate(-2deg);
+}
+
+aside .item h2 {
+  color: var(--tt-base);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 160%;
+}
+
+aside .item p {
+  color: var(--txt-base);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+footer {
+  grid-area: footer;
+  background: var(--bg-input-footer);
+  padding: 2rem 0;
+}
+
+footer p {
+  color: white;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  #page {
+    display: grid;
+
+    grid-template:
+      "header header"
+      "main aside"
+      "footer footer";
+  }
+
+  header {
+    grid-area: header;
+    margin-bottom: 4.4rem;
+  }
+
+  header form .input-wrapper input {
+    width: 100rem;
+  }
+
+  main {
+    grid-area: main;
+    margin-left: 10rem;
+  }
+
+  main .container {
+    padding: 3.2rem 0 4rem 0;
+  }
+
+  main .container .title-section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}
